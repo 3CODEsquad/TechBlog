@@ -27,3 +27,12 @@ footer {
     text-align: center;
     padding: 10px;
 }
+
+.post>h2, .post>div{
+    background: #EEE;
+    padding: 10px;
+    margin: 0;
+}
+.post>h2 {
+    margin-top: 15px;
+}
