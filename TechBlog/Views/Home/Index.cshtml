@@ -2,17 +2,27 @@
     ViewBag.Title = "Home";
 }
 
+@model List<TechBlog.Models.Post>
+
 <div class="jumbotron">
     <h1>3CODEsquad</h1>
 </div>
 
-<div class="row">
-    <div class="post col-md-6">
-        <h2 class="title">Post Title</h2>
-        <div class="about">
-            Posted on <i>27-Jul-2016</i>
-            by <i>3CODEsquad</i>
+@foreach (var post in Model)
+{
+    <div class="row">
+        <div class="post col-md-6">
+            <h2 class="title">@post.Title</h2>
+            <div class="about">
+                Posted on <i>@post.Date</i>
+                @if (post.Author != null)
+                {
+                    @:by <i>@post.Author.FullName (@post.Author.UserName)</i>
+                }
+
+            </div>
+
+            <div class="body">Post content comes here</div>
         </div>
-        <div class="body">Post content comes here</div>
     </div>
-</div>
+}
