@@ -1,4 +1,8 @@
-﻿body {
+﻿main {
+    float: right;
+    display:inline;
+}
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -28,6 +32,7 @@ footer {
     padding: 10px;
 }
 
+
 .post>h2, .post>div{
     background: #EEE;
     padding: 10px;
@@ -35,4 +40,12 @@ footer {
 }
 .post>h2 {
     margin-top: 15px;
+}
+
+.side {
+    display: inline-block;
+    float: left;
+    background: #CCC;
+    padding: 15px;
+    margin-left: 20px;
 }

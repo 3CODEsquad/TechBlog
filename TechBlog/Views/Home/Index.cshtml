@@ -7,22 +7,30 @@
 <div class="jumbotron">
     <h1>3CODEsquad</h1>
 </div>
-
-@foreach (var post in Model)
-{
-    <div class="row">
-        <div class="post col-md-6">
-            <h2 class="title">@post.Title</h2>
-            <div class="about">
-                Posted on <i>@post.Date</i>
-                @if (post.Author != null)
+<aside class="side">
+    <h2>Recent Posts</h2>
+    @foreach (var recentPost in ViewBag.SidebarPosts)
+    {
+        <a href="/Posts/Details/@recentPost.Id">@recentPost.Title</a>
+    }
+</aside>
+<main>
+    @foreach (var post in Model)
+    {
+        <div class="row">
+            <div class="post col-md-6">
+                <h2 class="title">@post.Title</h2>
+                <div class="about">
+                    Posted on <i>@post.Date</i>
+                    @if (post.Author != null)
                 {
-                    @:by <i>@post.Author.FullName (@post.Author.UserName)</i>
+                        @:by <i>@post.Author.FullName (@post.Author.UserName)</i>
                 }
 
-            </div>
+                </div>
 
-            <div class="body">Post content comes here</div>
+                <div class="body">Post content comes here</div>
+            </div>
         </div>
-    </div>
-}
+    }
+</main>
