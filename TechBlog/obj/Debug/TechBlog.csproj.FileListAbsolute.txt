@@ -243,3 +243,4 @@ C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\Microsoft.Owin.Security.Twitter
 C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\x\Desktop\Project\TechBlog\TechBlog\obj\Debug\TechBlog.dll
 C:\Users\x\Desktop\Project\TechBlog\TechBlog\obj\Debug\TechBlog.pdb
+C:\Users\x\Desktop\Project\TechBlog\TechBlog\obj\Debug\TechBlog.csprojResolveAssemblyReference.cache

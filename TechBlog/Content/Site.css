@@ -1,7 +1,7 @@
-﻿main {
+﻿/*main {
     float: right;
-    display:inline;
-}
+    display: inline;
+}*/
 body {
     padding-top: 50px;
     padding-bottom: 20px;
@@ -28,24 +28,67 @@ textarea {
 }
 
 footer {
+    display: block;
+    background-color: #101010;
     text-align: center;
-    padding: 10px;
+    color: grey;
+    padding: 2px;
 }
 
 
-.post>h2, .post>div{
+.side {
+    float: right;
+    background-color: #CCC;
+    opacity: 0.9;
+    text-align: left;
+    padding: 15px;
+    margin-left: 20px;
+    border-radius: 20px;
+}
+
+.recent-posts {
+    font-size: 24px;
+    margin-top: 0;
+    padding-top: 0;
+    color: #303233;
+    margin-bottom: 10px;
+}
+
+.post > h2, .post > div {
     background: #EEE;
     padding: 10px;
     margin: 0;
 }
-.post>h2 {
+
+.post > h2 {
     margin-top: 15px;
 }
 
-.side {
-    display: inline-block;
-    float: left;
-    background: #CCC;
-    padding: 15px;
-    margin-left: 20px;
+.background-index {
+    background: url("../Images/1474301.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+li {
+    display: list-item;
+    text-align: left;
+}
+
+.tales-list li {
+    line-height: 23px;
+    margin-bottom: 14px;
+}
+
+.jumbotron {
+    margin-top: 15px;
+}
+
+.background-about {
+    background: url("../Images/robot01.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }

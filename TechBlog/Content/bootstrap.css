@@ -401,7 +401,7 @@ hr {
 }
 
 p {
-  margin: 0 0 10px;
+  margin: 2px;
 }
 
 .lead {
@@ -498,7 +498,7 @@ h6 small,
 h1,
 h2,
 h3 {
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
