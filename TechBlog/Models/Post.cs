@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace TechBlog.Models
 {
@@ -16,8 +17,9 @@ namespace TechBlog.Models
         [StringLength(200)]
         public string Title { get; set; }
 
-
+        [AllowHtml]
         [Required]
+        [DataType(DataType.MultilineText)]
         public string Body { get; set; }
 
 
