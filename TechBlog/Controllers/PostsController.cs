@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -17,7 +19,7 @@ namespace TechBlog.Controllers
         // GET: Posts
         public ActionResult Index()
         {
-            return View(db.Posts.ToList());
+            return View(db.Posts.OrderByDescending(b => b.Date).ToList());
         }
 
         // GET: Posts/Details/5
@@ -27,7 +29,8 @@ namespace TechBlog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Find(id);
+            Post post = db.Posts.Include(b => b.Author).Single(b => b.Id == id);
+
             if (post == null)
             {
                 return HttpNotFound();
@@ -52,6 +55,10 @@ namespace TechBlog.Controllers
         {
             if (ModelState.IsValid)
             {
+                UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                ApplicationUser user = UserManager.FindById(this.User.Identity.GetUserId());
+                post.Author = user;
+
                 db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");
