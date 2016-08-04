@@ -92,3 +92,9 @@ li {
     background-attachment: fixed;
     background-size: cover;
 }
+
+#clock {
+    float: right;
+    text-align: center;
+    color: black;
+}
