@@ -29,7 +29,7 @@
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Body)
+            @Html.Raw(item.Body)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Date)
