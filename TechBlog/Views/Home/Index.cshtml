@@ -33,7 +33,6 @@
                 @foreach (var post in Model)
                 {
 
-                    <div class="post">
                         <div class="col-md-6 col-sm-6">
                             <article class="blog-teaser">
                                 <header>
@@ -47,13 +46,12 @@
                                     </div>
                                     <hr>
                                 </header>
-                                <div class="body">@Html.Raw(post.Body)</div>
+                                <div class="body post">@Html.Raw(post.Body)</div>
                                 <div class="clearfix">
                                     <a href="" class="btn btn-tales-one">Read more</a>
                                 </div>
                             </article>
                         </div>
-                    </div>
                 }
             </div>
         </div>

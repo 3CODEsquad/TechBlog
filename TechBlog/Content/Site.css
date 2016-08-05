@@ -62,9 +62,8 @@ body {
 }
 
 .post {
-    padding-top: 36px;
-    padding-bottom: 20px;
-    position: relative;
+    height: 158px;
+    overflow: hidden;
 }
 
 @media (max-width: 979px) and (min-width: 768px) {
