@@ -51,7 +51,7 @@ namespace TechBlog.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Body")] Post post)
+        public ActionResult Create([Bind(Include = "Id,Title,Body,PostLike")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -59,12 +59,20 @@ namespace TechBlog.Controllers
                 ApplicationUser user = UserManager.FindById(this.User.Identity.GetUserId());
                 post.Author = user;
 
+                post.PostLike = 0;
                 db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
             return View(post);
+        }
+        public ActionResult Like(int id)
+        {
+            Post update = db.Posts.ToList().Find(u => u.Id == id);
+            update.PostLike += 1;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         // GET: Posts/Edit/5

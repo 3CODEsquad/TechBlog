@@ -17,6 +17,7 @@ namespace TechBlog.Models
         [Key]
         public int Id { get; set; }
 
+        public int PostLike { get; set; }
 
         [Required]
         [StringLength(200)]

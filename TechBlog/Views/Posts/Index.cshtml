@@ -32,6 +32,10 @@
             @Html.Raw(item.Body)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.PostLike) likes <br />
+            @Html.ActionLink("Like", "Like", new { id = item.Id })
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Date)
         </td>
         <td>
