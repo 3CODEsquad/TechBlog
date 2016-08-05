@@ -27,6 +27,7 @@ textarea {
     max-width: 280px;
 }
 
+
 body {
     font-size: 16px;
     line-height: 27px;
@@ -76,7 +77,7 @@ body {
 
 .blog-teaser {
     background-color: #e9e4da;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0px 1px 5px #9c9992;
     margin-bottom: 40px;
 
@@ -95,8 +96,8 @@ body {
 
 .blog-teaser header {
     padding-top: 20px;
-    padding-right: 45px;
-    padding-left: 45px;
+    padding-right: 20px;
+    padding-left: 20px;
     text-align: center;
 }
 
@@ -115,8 +116,8 @@ hr {
 }
 
 .blog-teaser .body {
-    padding-right: 45px;
-    padding-left: 45px;
+    padding-right: 20px;
+    padding-left: 20px;
     margin-bottom: 10px;
     color: #0e0706;
 }
@@ -231,6 +232,10 @@ li {
 
 .jumbotron {
     margin-top: 15px;
+    text-align: center;
+    font-family: Georgia;
+    background-color: #CCC;
+    opacity: 0.9;
 }
 
 .background-about {

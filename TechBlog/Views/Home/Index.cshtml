@@ -5,12 +5,12 @@
 @model List<TechBlog.Models.Post>
 
 <div class="jumbotron">
-    <h1>3CODEsquad</h1>
+    <h1>Welcome to 3CODEsquad's blog</h1>
     <input type="text" id="clock" disabled />
 </div>
 
 <body class="background-index">
-    <aside class="col-md-4 side">
+    <aside class="col-md-3 side">
         <div class="aside-widget">
             <header class="recent-posts">
                 <h3>Recent Posts</h3>
@@ -25,33 +25,31 @@
             </div>
         </div>
     </aside>
-
     <main>
 
         <div class="col-md-8">
             <div class="row">
                 @foreach (var post in Model)
                 {
-
-                        <div class="col-md-6 col-sm-6">
-                            <article class="blog-teaser">
-                                <header>
-                                    <h2 class="title">@post.Title</h2>
-                                    <div class="about">
-                                        Posted on <i>@post.Date</i>
-                                        @if (post.Author != null)
+                    <div class="col-md-6 col-sm-6">
+                        <article class="blog-teaser">
+                            <header>
+                                <h2 class="title">@post.Title</h2>
+                                <div class="about">
+                                    Posted on <i>@post.Date</i>
+                                    @if (post.Author != null)
                 {
-                                            @:by <i>@post.Author.FullName (@post.Author.UserName)</i>
+                                        @:by <i>@post.Author.FullName (@post.Author.UserName)</i>
                 }
-                                    </div>
-                                    <hr>
-                                </header>
-                                <div class="body post">@Html.Raw(post.Body)</div>
-                                <div class="clearfix">
-                                    <a href="" class="btn btn-tales-one">Read more</a>
                                 </div>
-                            </article>
-                        </div>
+                                <hr>
+                            </header>
+                            <div class="body post">@Html.Raw(post.Body)</div>
+                            <div class="clearfix">
+                                <a href="" class="btn btn-tales-one">Read more</a>
+                            </div>
+                        </article>
+                    </div>
                 }
             </div>
         </div>
