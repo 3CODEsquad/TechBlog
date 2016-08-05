@@ -10,7 +10,7 @@
 </div>
 
 <body class="background-index">
-    <aside class="side">
+    <aside class="col-md-4 side">
         <div class="aside-widget">
             <header class="recent-posts">
                 <h3>Recent Posts</h3>
@@ -18,37 +18,44 @@
             <div class="body">
                 <ul class="tales-list">
                     @foreach (var recentPost in ViewBag.SidebarPosts)
-            {
+                    {
                         <li><a href="/Posts/Details/@recentPost.Id">@recentPost.Title</a></li>
                     }
                 </ul>
             </div>
         </div>
     </aside>
+
     <main>
-        @foreach (var post in Model)
-        {
+
+        <div class="col-md-8">
             <div class="row">
-                <div class="post col-md-6">
-                    <h2 class="title">@post.Title</h2>
-                    <div class="about">
-                        Posted on <i>@post.Date</i>
-                        @if (post.Author != null)
+                @foreach (var post in Model)
                 {
-                            @:by <i>@post.Author.FullName (@post.Author.UserName)</i>
+
+                    <div class="post">
+                        <div class="col-md-6 col-sm-6">
+                            <article class="blog-teaser">
+                                <header>
+                                    <h2 class="title">@post.Title</h2>
+                                    <div class="about">
+                                        Posted on <i>@post.Date</i>
+                                        @if (post.Author != null)
+                {
+                                            @:by <i>@post.Author.FullName (@post.Author.UserName)</i>
                 }
-
+                                    </div>
+                                    <hr>
+                                </header>
+                                <div class="body">@Html.Raw(post.Body)</div>
+                                <div class="clearfix">
+                                    <a href="" class="btn btn-tales-one">Read more</a>
+                                </div>
+                            </article>
+                        </div>
                     </div>
-
-                    <div class="body">@Html.Raw(post.Body)</div>
-                </div>
+                }
             </div>
-        }
+        </div>
     </main>
-
-    <script type="text/javascript">
-    
-    </script>
 </body>
-
-

@@ -27,12 +27,19 @@ textarea {
     max-width: 280px;
 }
 
-footer {
-    display: block;
-    background-color: #101010;
+body {
+    font-size: 16px;
+    line-height: 27px;
+    font-family: 'Open Sans', sans-serif;
+    color: #202020;
+    background-color: #e9e4da;
+}
+
+#clock {
+    float: right;
     text-align: center;
-    color: grey;
-    padding: 2px;
+    color: black;
+    border-radius: 30px;
 }
 
 
@@ -54,10 +61,151 @@ footer {
     margin-bottom: 10px;
 }
 
-.post > h2, .post > div {
-    background: #EEE;
-    padding: 10px;
-    margin: 0;
+.post {
+    padding-top: 36px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+@media (max-width: 979px) and (min-width: 768px) {
+    .blog-teaser {
+        display: block;
+        float: none;
+        width: 95%;
+    }
+}
+
+.blog-teaser {
+    background-color: #e9e4da;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px #9c9992;
+    margin-bottom: 40px;
+
+}
+
+.blog-teaser {
+    background-color: #e9e4da;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 1px 5px #9c9992;
+    -moz-box-shadow: 0px 1px 5px #9c9992;
+    box-shadow: 0px 1px 5px #9c9992;
+    margin-bottom: 40px;
+}
+
+.blog-teaser header {
+    padding-top: 20px;
+    padding-right: 45px;
+    padding-left: 45px;
+    text-align: center;
+}
+
+.blog-teaser header hr {
+    border-top-color: #cbc8c2;
+    border-bottom: none;
+    height: 0;
+    box-sizing: content-box;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+.blog-teaser .body {
+    padding-right: 45px;
+    padding-left: 45px;
+    margin-bottom: 10px;
+    color: #0e0706;
+}
+
+.blog-teaser .btn {
+    float: right;
+    margin-right: 45px;
+    margin-bottom: 18px;
+}
+
+.btn-tales-one {
+  color: #e9e4da;
+  background-color: #df735d;
+  border-color: #df735d;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#df735d), to(#d5472a));
+  background-image: -webkit-linear-gradient(top, #df735d, 0%, #d5472a, 100%);
+  background-image: -moz-linear-gradient(top, #df735d 0%, #d5472a 100%);
+  background-image: linear-gradient(to bottom, #df735d 0%, #d5472a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdf735d', endColorstr='#ffd5472a', GradientType=0);
+  background-repeat: repeat-x;
+  border-color: #cc4428;
+}
+.btn-tales-one:hover,
+.btn-tales-one:focus,
+.btn-tales-one:active,
+.btn-tales-one.active,
+.open .dropdown-toggle.btn-tales-one {
+  color: #e9e4da;
+  background-color: #d8563b;
+  border-color: #d5472a;
+}
+.btn-tales-one:active,
+.btn-tales-one.active,
+.open .dropdown-toggle.btn-tales-one {
+  background-image: none;
+}
+.btn-tales-one.disabled,
+.btn-tales-one[disabled],
+fieldset[disabled] .btn-tales-one,
+.btn-tales-one.disabled:hover,
+.btn-tales-one[disabled]:hover,
+fieldset[disabled] .btn-tales-one:hover,
+.btn-tales-one.disabled:focus,
+.btn-tales-one[disabled]:focus,
+fieldset[disabled] .btn-tales-one:focus,
+.btn-tales-one.disabled:active,
+.btn-tales-one[disabled]:active,
+fieldset[disabled] .btn-tales-one:active,
+.btn-tales-one.disabled.active,
+.btn-tales-one[disabled].active,
+fieldset[disabled] .btn-tales-one.active {
+  background-color: #df735d;
+  border-color: #df735d;
+}
+.btn-tales-one:hover,
+.btn-tales-one:focus {
+  background-color: #d5472a;
+  background-position: 0 -15px;
+}
+.btn-tales-one:active,
+.btn-tales-one.active {
+  background-color: #d5472a;
+  border-color: #cc4428;
+}
+.btn-tales-one .caret {
+  border-top-color: #e9e4da;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
 
 .post > h2 {
@@ -93,9 +241,11 @@ li {
     background-size: cover;
 }
 
-#clock {
-    float: right;
+
+footer {
+    display: block;
+    background-color: #101010;
     text-align: center;
-    color: black;
-    border-radius: 30px;
+    color: grey;
+    padding: 2px;
 }

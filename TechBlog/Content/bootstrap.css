@@ -790,7 +790,7 @@ pre code {
 
 .row:before,
 .row:after {
-  display: table;
+  display: block;
   content: " ";
 }
 
