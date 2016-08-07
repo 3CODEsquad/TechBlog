@@ -19,7 +19,7 @@ namespace TechBlog.Controllers
         // GET: Posts
         public ActionResult Index()
         {
-            return View(db.Posts.OrderByDescending(b => b.Date).ToList());
+            return View(db.Posts.Include(p => p.Author).OrderByDescending(b => b.Date).ToList());
         }
 
         // GET: Posts/Details/5
@@ -76,7 +76,7 @@ namespace TechBlog.Controllers
         }
 
         // GET: Posts/Edit/5
-        [Authorize(Roles = "Administrators")]
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -95,7 +95,7 @@ namespace TechBlog.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize(Roles = "Administrators")]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Title,Body,Date")] Post post)
         {
@@ -109,7 +109,7 @@ namespace TechBlog.Controllers
         }
 
         // GET: Posts/Delete/5
-        [Authorize(Roles = "Administrators")]
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -125,7 +125,7 @@ namespace TechBlog.Controllers
         }
 
         // POST: Posts/Delete/5
-        [Authorize(Roles = "Administrators")]
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
