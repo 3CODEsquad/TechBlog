@@ -1,11 +1,15 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "No title yet";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
+<header class="about-header">
+<h2 class="about-title">@ViewBag.Title.</h2>
+<hr>
+</header>
 <body class="background-about">
-    <div>
+    <aside class="col-md-5 about-info">
+        <h3 class="about-body">@ViewBag.Message</h3>
+    </aside>
+    @*<div>
         <p>Use this area to provide additional information.</p>
-    </div>
+    </div>*@
 </body>
