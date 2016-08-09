@@ -290,6 +290,11 @@ li {
     color: black;
 }
 
+.alert{
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
 footer {
     display: block;
     background-color: #101010;

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using TechBlog.Extensions;
 using TechBlog.Models;
 
 namespace TechBlog.Controllers
@@ -62,6 +63,7 @@ namespace TechBlog.Controllers
                 post.PostLike = 0;
                 db.Posts.Add(post);
                 db.SaveChanges();
+                this.AddNotification("Post Created.", NotificationType.INFO);
                 return RedirectToAction("Index");
             }
 
