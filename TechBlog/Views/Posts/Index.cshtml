@@ -33,7 +33,11 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PostLike) likes <br />
+            @if (User.IsInRole("Administrators") || (item.Author != null && User.Identity.Name == item.Author.UserName))
+            {
+
             @Html.ActionLink("Like", "Like", new { id = item.Id })
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Date)

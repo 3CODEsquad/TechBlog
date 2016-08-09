@@ -213,6 +213,11 @@ body {
     border-radius: 4px;
 }
 
+.likes{
+    margin-left: 45px;
+    margin-bottom: 18px;
+}
+
 .post > h2 {
     margin-top: 15px;
 }
