@@ -12,6 +12,7 @@ namespace TechBlog.Models
         public Post()
         {
             this.Date = DateTime.Now;
+            this.Comments = new HashSet<Comment>();
         }
 
         [Key]
@@ -34,5 +35,7 @@ namespace TechBlog.Models
 
 
         public ApplicationUser Author { get; set; }
+                
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }
