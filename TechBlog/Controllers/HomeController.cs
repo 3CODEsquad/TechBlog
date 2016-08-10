@@ -9,6 +9,7 @@ using TechBlog.Models;
 
 namespace TechBlog.Controllers
 {
+
     public class HomeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
