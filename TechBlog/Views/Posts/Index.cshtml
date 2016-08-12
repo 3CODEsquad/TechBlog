@@ -28,9 +28,8 @@
 
     @foreach (var item in Model)
     {
-        if (User.Identity.Name == item.Author.UserName)
+        if (item.Author != null && User.Identity.Name == item.Author.UserName)
         {
-
         <tr>
             <td>
 
