@@ -29,4 +29,5 @@ namespace TechBlog.Models
                 };
             }
         }
+    }
 }
