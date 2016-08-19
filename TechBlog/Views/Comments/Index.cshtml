@@ -12,27 +12,29 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PostLike)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Body)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Date)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
+            Action
+        </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.PostLike)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Body)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

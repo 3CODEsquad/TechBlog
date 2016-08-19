@@ -52,7 +52,7 @@ namespace TechBlog.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Body,PostLike")] Post post)
+        public ActionResult Create([Bind(Include = "Id,Title,Body,PostLike,Author_Id")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -78,6 +78,7 @@ namespace TechBlog.Controllers
         }
 
         // GET: Posts/Edit/5
+        [HttpGet]
         [Authorize]
         public ActionResult Edit(int? id)
         {
@@ -90,16 +91,20 @@ namespace TechBlog.Controllers
             {
                 return HttpNotFound();
             }
+            var authors = db.Users.ToList();
+            ViewBag.Authors = authors;
+
             return View(post);
+            
         }
 
         // POST: Posts/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Body,Date")] Post post)
+        [Authorize]
+        public ActionResult Edit([Bind(Include = "Id,Title,Body,Data, Author_Id")] Post post)
         {
             if (ModelState.IsValid)
             {

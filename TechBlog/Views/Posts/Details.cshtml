@@ -44,6 +44,27 @@
 
     </dl>
 </div>
+<div>
+    @if (Model.Comments != null)
+    {
+        foreach (var comment in Model.Comments)
+        {
+            @Html.Partial("Index", comment)
+        }
+    }
+    else
+    {
+        <div>
+            No comments
+        </div>
+    }
+</div>
+@*@Html.RenderAction("Create", "Comment",new {postId = Model.Id});*@
+
+<p>
+    @Html.ActionLink("Comment", "Create", "Comments")
+</p>
+
 <p>
     @if (User.IsInRole("Administrators"))
     {

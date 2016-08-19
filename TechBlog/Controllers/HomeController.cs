@@ -43,21 +43,5 @@ namespace TechBlog.Controllers
             return isAdmin;
         }
 
-        public ActionResult PostDetailsById(int id)
-        {
-            var currentUserId = this.User.Identity.GetUserId();
-            var isAdmin = this.IsAdmin();
-            var eventDetails = this.db.Posts
-                .Where(e => e.Id == id)
-                .Where(e => isAdmin || (e.AuthorId != null && e.AuthorId == currentUserId))
-                .Select(PostDetailsViewModel.ViewModel)
-                .FirstOrDefault();
-
-            var isOwner = (eventDetails != null && eventDetails.AuthorId != null &&
-                eventDetails.AuthorId == currentUserId);
-            this.ViewBag.CanEdit = isOwner || isAdmin;
-
-            return this.PartialView("_EventDetails", eventDetails);
-        }
     }
 }

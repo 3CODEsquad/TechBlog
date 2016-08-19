@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -6,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using TechBlog.Extensions;
 using TechBlog.Models;
 
 namespace TechBlog.Controllers
@@ -36,6 +39,7 @@ namespace TechBlog.Controllers
         }
 
         // GET: Comments/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -46,19 +50,26 @@ namespace TechBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,PostLike,Body,Date")] Comment comment)
+        public ActionResult Create([Bind(Include = "Id,PostLike,Body,Author_Id,Post_Id")] Comment Comment)
         {
             if (ModelState.IsValid)
             {
-                db.Comments.Add(comment);
+                UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                ApplicationUser user = UserManager.FindById(this.User.Identity.GetUserId());
+                Comment.Author = user;
+                var id = 0;
+                var post = db.Posts.ToList().Find(u => u.Id == id);
+                Comment.Post = post;
+                db.Comments.Add(Comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(comment);
+            return View(Comment);
         }
 
         // GET: Comments/Edit/5
+        [HttpGet]
         public ActionResult Edit(int? id)
         {
             if (id == null)

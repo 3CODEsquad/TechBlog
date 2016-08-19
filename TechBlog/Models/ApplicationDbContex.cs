@@ -19,6 +19,11 @@ namespace TechBlog.Models
             return new ApplicationDbContext();
         }
 
+        public static ApplicationDbContext Edit()
+        {
+            return new ApplicationDbContext();
+        }
+
         public System.Data.Entity.DbSet<TechBlog.Models.Post> Posts { get; set; }
 
         public System.Data.Entity.DbSet<TechBlog.Models.Comment> Comments { get; set; }

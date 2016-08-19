@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TechBlog.Models
 {
@@ -28,7 +29,11 @@ namespace TechBlog.Models
         [Required]
         public DateTime Date { get; set; }
 
+        public string Author_Id { get; set; }
 
+        [ForeignKey("Author_Id")]
         public ApplicationUser Author { get; set; }
+
+        public Post Post { get; set; }
     }
 }
