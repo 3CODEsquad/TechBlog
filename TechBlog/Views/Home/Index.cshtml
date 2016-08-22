@@ -16,29 +16,15 @@ else
 }
 }
 
-<div class="jumbotron">
-    <h1>Welcome to 3CODEsquad's blog</h1>
-    <input type="text" id="clock" disabled />
-</div>
 
-<body class="background-index">
-    <aside class="col-md-3 side">
-        <div class="aside-widget">
-            <header class="recent-posts">
-                <h3>Recent Posts</h3>
-            </header>
-            <div class="body">
-                <ul class="tales-list">
-                    @foreach (var recentPost in ViewBag.SidebarPosts)
-                    {
-                        <li><a href="/Posts/Details/@recentPost.Id">@recentPost.Title</a></li>
-                    }
-                </ul>
-            </div>
+
+<div>
+    <div class="row">
+        <div class="jumbotron">
+            <h1>Welcome to 3CODEsquad's blog</h1>
+            <input type="text" id="clock" disabled />
         </div>
-    </aside>
-    <main>
-        <div class="col-md-8">
+        <div class="col-md-8 blog-main">
             <div class="row">
                 @foreach (var post in Model)
                 {
@@ -55,7 +41,7 @@ else
                                 </div>
                                 <hr>
                             </header>
-                            <div class="body post">@Truncate(post.Body, 300)</div>
+                            <div class="body post">@Truncate(post.Body, 400)</div>
                             <div class="clearfix">
                                 <a href="/Posts/Details/@post.Id" class="btn btn-tales-one">Read more</a>
                                 <div class="likes">
@@ -67,6 +53,22 @@ else
                 }
             </div>
         </div>
-    </main>
-    @Scripts.Render("~/Scripts/Site.js")
-</body>
+        <aside class="col-md-3 side">
+            <div class="aside-widget">
+                <header class="recommended">
+                    <h3>Recommended</h3>
+                    <hr />
+                </header>
+                <div class="body">
+                    <ul class="tales-list">
+                        @foreach (var recommended in ViewBag.SidebarPosts)
+                        {
+                            <li><a href="/Posts/Details/@recommended.Id">@recommended.Title</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        @Scripts.Render("~/Scripts/Site.js")
+    </div>
+</div>
