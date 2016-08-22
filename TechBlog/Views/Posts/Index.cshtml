@@ -45,12 +45,12 @@ else
         <tr>
             <td>
 
-                @Html.DisplayFor(modelItem => item.Title)
+                @Truncate(item.Title, 50)
           
             </td>
             <td>
 
-                    @Truncate(item.Body, 60)
+                    @Truncate(item.Body, 160)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PostLike) likes <br />
