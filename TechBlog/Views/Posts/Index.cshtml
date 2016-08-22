@@ -1,5 +1,17 @@
 ﻿@model IEnumerable<TechBlog.Models.Post>
 
+@helper Truncate(string input, int length)
+{
+if (input.Length <= length)
+{
+        @Html.Raw(@input)
+}
+else
+{
+        @Html.Raw(@input.Substring(0, length)) <text>...</text>
+}
+}
+
 @{
     ViewBag.Title = "Index";
 }
@@ -38,7 +50,7 @@
             </td>
             <td>
 
-                    @Html.Raw(TechBlog.Classes.Utils.CutText(item.Body))
+                    @Truncate(item.Body, 60)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PostLike) likes <br />

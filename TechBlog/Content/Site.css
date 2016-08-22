@@ -74,7 +74,7 @@ body {
 }
 
 .post {
-    height: 158px;
+    height: 250px;
     overflow: hidden;
 }
 
@@ -104,19 +104,19 @@ body {
     margin-bottom: 40px;
 }
 
-    .blog-teaser header {
-        padding-top: 20px;
-        padding-right: 20px;
-        padding-left: 20px;
-        text-align: center;
-    }
+.blog-teaser header {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: center;
+}
 
-        .blog-teaser header hr {
-            border-top-color: #cbc8c2;
-            border-bottom: none;
-            height: 0;
-            box-sizing: content-box;
-        }
+.blog-teaser header hr {
+    border-top-color: #cbc8c2;
+    border-bottom: none;
+    height: 0;
+    box-sizing: content-box;
+}
 
     /*hr {
     margin-top: 20px;
@@ -125,18 +125,18 @@ body {
     border-top: 1px solid #eee;
 }*/
 
-    .blog-teaser .body {
-        padding-right: 20px;
-        padding-left: 20px;
-        margin-bottom: 10px;
-        color: #0e0706;
-    }
+.blog-teaser .body {
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    color: #0e0706;
+}
 
-    .blog-teaser .btn {
-        float: right;
-        margin-right: 45px;
-        margin-bottom: 18px;
-    }
+.blog-teaser .btn {
+    float: right;
+    margin-right: 45px;
+    margin-bottom: 18px;
+}
 
 .btn-tales-one {
     color: #e9e4da;
