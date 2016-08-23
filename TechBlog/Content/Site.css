@@ -90,6 +90,11 @@ body {
     overflow: hidden;
 }
 
+.post {
+    height: 290px;
+
+}
+
 @media (max-width: 979px) and (min-width: 768px) {
     .blog-teaser {
         display: block;
@@ -238,7 +243,7 @@ fieldset[disabled] .btn-tales-one.active {
     margin-top: 15px;
 }
 
-body {
+.background-index {
     background: url("../Images/1474301.jpg");
     background-repeat: no-repeat;
     background-position: center;
