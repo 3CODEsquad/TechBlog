@@ -150,6 +150,12 @@ namespace TechBlog.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: MyPosts
+        public ActionResult MyPosts()
+        {
+            return View(db.Posts.Include(p => p.Author).OrderByDescending(b => b.Date).ToList());
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
