@@ -58,6 +58,9 @@ namespace TechBlog.Controllers
                 ApplicationUser user = UserManager.FindById(this.User.Identity.GetUserId());
                 Comment.Author = user;
 
+
+                //Post postId = db.Posts.Include(b => b.Id).Single(b => b.Id == id);
+                //Post update = db.Posts.ToList().Find(u => u.Id == id);
                 //var postId = db.Posts.Find(id);
                 //Comment.Post_Id = postId;
 

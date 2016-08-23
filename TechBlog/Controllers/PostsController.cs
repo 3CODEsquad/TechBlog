@@ -110,12 +110,12 @@ namespace TechBlog.Controllers
         {
             if (ModelState.IsValid)
             {
+                db.Entry(post).State = EntityState.Modified;
+
                 UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
                 ApplicationUser user = UserManager.FindById(this.User.Identity.GetUserId());
                 post.Author = user;
-
-                db.Entry(post).State = EntityState.Modified;
-                db.Posts.Add(post);
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
