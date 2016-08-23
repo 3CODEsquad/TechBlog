@@ -45,21 +45,20 @@
     </dl>
 </div>
 <div>
-    @if (Model.Comments != null)
+    @foreach (var comment in Model.Comments)
     {
-        foreach (var comment in Model.Comments)
+        if (comment != null)
         {
             @Html.Partial("Index", comment)
         }
-    }
-    else
-    {
-        <div>
-            No comments
-        </div>
+        else
+        {
+            <div>
+                No comments
+            </div>
+        }
     }
 </div>
-@*@Html.RenderAction("Create", "Comment",new {postId = Model.Id});*@
 
 <p>
     @Html.ActionLink("Comment", "Create", "Comments")

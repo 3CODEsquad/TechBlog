@@ -50,16 +50,17 @@ namespace TechBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,PostLike,Body,Author_Id,Post_Id")] Comment Comment)
+        public ActionResult Create([Bind(Include = "Id,PostLike,Body,Author_Id,Post_Id")] Comment Comment, int? id)
         {
             if (ModelState.IsValid)
             {
                 UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
                 ApplicationUser user = UserManager.FindById(this.User.Identity.GetUserId());
                 Comment.Author = user;
-                var id = 0;
-                var post = db.Posts.ToList().Find(u => u.Id == id);
-                Comment.Post = post;
+
+                //var postId = db.Posts.Find(id);
+                //Comment.Post_Id = postId;
+
                 db.Comments.Add(Comment);
                 db.SaveChanges();
                 return RedirectToAction("Index");

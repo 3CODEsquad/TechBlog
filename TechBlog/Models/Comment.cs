@@ -34,6 +34,9 @@ namespace TechBlog.Models
         [ForeignKey("Author_Id")]
         public ApplicationUser Author { get; set; }
 
+        //public int Post_Id { get; set; }
+
+        //[ForeignKey("Post_Id")]
         public Post Post { get; set; }
     }
 }

@@ -1,2 +1,6 @@
 /.vs/TechBlog/v14/*.suo
 /TechBlog/obj/Debug/TechBlog.csprojResolveAssemblyReference.cache
+/TechBlog/bin/TechBlog.dll
+/TechBlog/bin/TechBlog.pdb
+/TechBlog/obj/Debug/TechBlog.dll
+/TechBlog/obj/Debug/TechBlog.pdb

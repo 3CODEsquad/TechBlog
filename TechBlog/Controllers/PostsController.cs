@@ -94,6 +94,8 @@ namespace TechBlog.Controllers
             var authors = db.Users.ToList();
             ViewBag.Authors = authors;
 
+            Post postAuthor = db.Posts.Include(b => b.Author).Single(b => b.Id == id);
+
             return View(post);
             
         }
@@ -104,11 +106,16 @@ namespace TechBlog.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Edit([Bind(Include = "Id,Title,Body,Data, Author_Id")] Post post)
+        public ActionResult Edit([Bind(Include = "Id,Title,Body,Data,Author_Id")] Post post)
         {
             if (ModelState.IsValid)
             {
+                UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                ApplicationUser user = UserManager.FindById(this.User.Identity.GetUserId());
+                post.Author = user;
+
                 db.Entry(post).State = EntityState.Modified;
+                db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
