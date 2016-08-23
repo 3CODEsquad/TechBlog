@@ -4,36 +4,34 @@
 
 @model List<TechBlog.Models.Post>
 
-<div class="jumbotron">
-    <h1>Welcome to 3CODEsquad's blog</h1>
-    <input type="text" id="clock" disabled />
-</div>
+@helper Truncate(string input, int length)
+{
+if (input.Length <= length)
+{
+        @Html.Raw(@input)
+}
+else
+{
+        @Html.Raw(@input.Substring(0, length))<text>...</text>
+}
+}
+
+
 
 <body class="background-index">
-    <aside class="col-md-3 side">
-        <div class="aside-widget">
-            <header class="recent-posts">
-                <h3>Recent Posts</h3>
-            </header>
-            <div class="body">
-                <ul class="tales-list">
-                    @foreach (var recentPost in ViewBag.SidebarPosts)
-                    {
-                        <li><a href="/Posts/Details/@recentPost.Id">@recentPost.Title</a></li>
-                    }
-                </ul>
-            </div>
+    <div class="row">
+        <div class="jumbotron">
+            <h1>Welcome to 3CODEsquad's blog</h1>
+            <input type="text" id="clock" disabled />
         </div>
-    </aside>
-    <main>
-        <div class="col-md-8">
+        <div class="col-md-8 blog-main">
             <div class="row">
                 @foreach (var post in Model)
                 {
                     <div class="col-md-6 col-sm-6">
                         <article class="blog-teaser">
                             <header>
-                                <h2 class="title"><a href="/Posts/Details/@post.Id">@post.Title</a></h2>
+                                <h2 class="title"><a href="/Posts/Details/@post.Id">@Truncate(post.Title, 35)</a></h2>
                                 <div class="about">
                                     Posted on <i>@post.Date</i>
                                     @if (post.Author != null)
@@ -43,9 +41,9 @@
                                 </div>
                                 <hr>
                             </header>
-                            <div class="body post">@Html.Raw(post.Body)</div>
+                            <div class="body post">@Truncate(post.Body, 400)</div>
                             <div class="clearfix">
-                                <a href="" class="btn btn-tales-one">Read more</a>
+                                <a href="/Posts/Details/@post.Id" class="btn btn-tales-one">Read more</a>
                                 <div class="likes">
                                     LIKES: @post.PostLike
                                 </div>
@@ -55,6 +53,22 @@
                 }
             </div>
         </div>
-    </main>
-    @Scripts.Render("~/Scripts/Site.js")
+        <aside class="col-md-3 side">
+            <div class="aside-widget">
+                <header class="recommended">
+                    <h3>Recommended</h3>
+                    <hr />
+                </header>
+                <div class="body">
+                    <ul class="tales-list">
+                        @foreach (var recommended in ViewBag.SidebarPosts)
+                        {
+                            <li><a href="/Posts/Details/@recommended.Id">@recommended.Title</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </aside>
+        @Scripts.Render("~/Scripts/Site.js")
+    </div>
 </body>
