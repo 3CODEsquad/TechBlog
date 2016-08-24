@@ -18,8 +18,6 @@ namespace TechBlog.Models
         [Key]
         public int Id { get; set; }
 
-        public int PostLike { get; set; }
-
         [AllowHtml]
         [Required]
         [DataType(DataType.MultilineText)]

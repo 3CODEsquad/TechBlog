@@ -44,6 +44,13 @@
 
     </dl>
 </div>
+
+<button data-id="@Model.Id" type="button" class="like-button" title="Click to like this post!">
+    <i class="fa fa-thumbs-up"></i> Like
+    |
+    <span class="like-count">@Model.PostLikes</span>
+</button>
+
 <div>
     @foreach (var comment in Model.Comments)
     {

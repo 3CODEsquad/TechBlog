@@ -60,7 +60,6 @@ namespace TechBlog.Controllers
                 ApplicationUser user = UserManager.FindById(this.User.Identity.GetUserId());
                 post.Author = user;
 
-                post.PostLike = 0;
                 db.Posts.Add(post);
                 db.SaveChanges();
                 this.AddNotification("Post Created.", NotificationType.INFO);
@@ -69,13 +68,7 @@ namespace TechBlog.Controllers
 
             return View(post);
         }
-        public ActionResult Like(int id)
-        {
-            Post update = db.Posts.ToList().Find(u => u.Id == id);
-            update.PostLike += 1;
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        
 
         // GET: Posts/Edit/5
         [HttpGet]

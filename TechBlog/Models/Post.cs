@@ -5,6 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations.Schema;
+using TechBlog.Models;
 
 namespace TechBlog.Models
 {
@@ -18,8 +19,6 @@ namespace TechBlog.Models
 
         [Key]
         public int Id { get; set; }
-
-        public int PostLike { get; set; }
 
         [Required]
         [StringLength(200)]
@@ -40,5 +39,6 @@ namespace TechBlog.Models
         public ApplicationUser Author { get; set; }
 
         public ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<PostLike> PostLikes { get; set; }
     }
 }

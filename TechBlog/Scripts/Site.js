@@ -1,21 +1,22 @@
-﻿
-//Clock Script
-setInterval("settime()", 1000);
+﻿$(function () {
 
-function settime() {
-    var dateTime = new Date();
-    var hour = dateTime.getHours();
-    var minute = dateTime.getMinutes();
-    var second = dateTime.getSeconds();
+    if ($(".like-button").size() > 0) {
+        var postClient = $.connection.postHub;
 
-    if (minute < 10)
-        minute = "0" + minute;
+        postClient.client.updateLikeCount = function (post) {
+            var counter = $(".like-count");
+            $(counter).fadeOut(function () {
+                $(this).text(post.LikeCount);
+                $(this).fadeIn();
+            });
+        };
 
-    if (second < 10)
-        second = "0" + second;
+        $(".like-button").on("click", function () {
+            var code = $(this).attr("data-id");
+            postClient.server.like(code);
+        });
 
-    var time = "" + hour + ":" + minute + ":" + second;
+        $.connection.hub.start();
+    }
 
-    document.getElementById("clock").value = time;
-
-}
+});
