@@ -4,10 +4,11 @@
 }*/
 
 .brand {
+    font-family: 'Segoe Script';
     -ms-transform: rotate(-10deg);  /*IE 9*/ 
     -webkit-transform: rotate(-10deg);  /*Safari*/ 
     transform: rotate(-10deg);  /*Standard syntax*/ 
-    font-size: 20px;
+    font-size: 30px;
     line-height: 20px;
     color: #1f5fa5;
     background-color: transparent;

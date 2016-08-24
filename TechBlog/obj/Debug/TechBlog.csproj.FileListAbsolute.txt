@@ -251,3 +251,11 @@ E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\bin\Microsoft.
 E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\bin\Ninject.xml
 E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\bin\Ninject.Extensions.Conventions.xml
+C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\Ninject.dll
+C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\Ninject.Extensions.Conventions.dll
+C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\Ninject.xml
+C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\Ninject.Extensions.Conventions.xml
