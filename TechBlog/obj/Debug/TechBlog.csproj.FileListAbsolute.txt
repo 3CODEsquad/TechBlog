@@ -243,3 +243,11 @@ C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\Microsoft.Owin.Security.Twitter
 C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\x\Desktop\Project\TechBlog\TechBlog\obj\Debug\TechBlog.dll
 C:\Users\x\Desktop\Project\TechBlog\TechBlog\obj\Debug\TechBlog.pdb
+E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.Core.dll
+E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\bin\Ninject.dll
+E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\bin\Ninject.Extensions.Conventions.dll
+E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.Core.xml
+E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\bin\Ninject.xml
+E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\bin\Ninject.Extensions.Conventions.xml

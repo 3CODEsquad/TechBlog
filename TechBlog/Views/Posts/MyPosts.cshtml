@@ -2,14 +2,14 @@
 
 @helper Truncate(string input, int length)
 {
-if (input.Length <= length)
-{
-        @Html.Raw(@input)
-}
-else
-{
-        @Html.Raw(@input.Substring(0, length)) <text>...</text>
-}
+    if (input.Length <= length)
+    {
+        @Html.Raw(input)
+    }
+    else
+    {
+        @Html.Raw(input.Substring(0, length)) <text>...</text>
+    }
 }
 
 @{

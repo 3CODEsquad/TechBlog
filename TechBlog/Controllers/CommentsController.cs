@@ -40,9 +40,11 @@ namespace TechBlog.Controllers
 
         // GET: Comments/Create
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Create(Comment Comment, int? id)
         {
-            return View();
+            var post = db.Posts.Find(id).Id;
+            Comment.Post_Id = post; 
+            return View(Comment);
         }
 
         // POST: Comments/Create
@@ -50,7 +52,7 @@ namespace TechBlog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,PostLike,Body,Author_Id,Post_Id")] Comment Comment, int? id)
+        public ActionResult Create([Bind(Include = "Id,PostLike,Body,Author_Id,Post_Id")] Comment Comment, int id)
         {
             if (ModelState.IsValid)
             {
@@ -58,11 +60,8 @@ namespace TechBlog.Controllers
                 ApplicationUser user = UserManager.FindById(this.User.Identity.GetUserId());
                 Comment.Author = user;
 
-
-                //Post postId = db.Posts.Include(b => b.Id).Single(b => b.Id == id);
-                //Post update = db.Posts.ToList().Find(u => u.Id == id);
-                //var postId = db.Posts.Find(id);
-                //Comment.Post_Id = postId;
+                var postId = db.Posts.Find(id).Id;
+                Comment.Post_Id = postId;
 
                 db.Comments.Add(Comment);
                 db.SaveChanges();
