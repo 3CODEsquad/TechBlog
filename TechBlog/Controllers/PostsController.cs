@@ -107,9 +107,10 @@ namespace TechBlog.Controllers
 
                 UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
                 ApplicationUser user = UserManager.FindById(this.User.Identity.GetUserId());
-                post.Author = user;
-                
+                post.Author = user;                
                 db.SaveChanges();
+                this.AddNotification("Post Edited.", NotificationType.INFO);
+
                 return RedirectToAction("Index");
             }
             return View(post);
@@ -140,6 +141,8 @@ namespace TechBlog.Controllers
             Post post = db.Posts.Find(id);
             db.Posts.Remove(post);
             db.SaveChanges();
+            this.AddNotification("Post Deleted.", NotificationType.INFO);
+
             return RedirectToAction("Index");
         }
 

@@ -301,15 +301,41 @@ li {
     color: black;
 }
 
-.alert{
-    margin-top: 20px;
-    border-radius: 20px;
-}
-
 footer {
     display: block;
     background-color: #101010;
     text-align: center;
     color: grey;
     padding: 2px;
+
+}
+
+.alert {
+  -webkit-animation: seconds 1.0s forwards;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 5s;
+  animation: seconds 1.0s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 5s;
+  position: relative;
+  background: #f3c07a;
+  color: white;
+}
+@-webkit-keyframes seconds {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: -9999px; 
+  }
+}
+@keyframes seconds {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: -9999px; 
+  }
 }

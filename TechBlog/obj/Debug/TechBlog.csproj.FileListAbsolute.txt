@@ -259,3 +259,11 @@ C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.Core.x
 C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\Ninject.xml
 C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\Ninject.Extensions.Conventions.xml
+D:\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\TechBlog\TechBlog\bin\Ninject.dll
+D:\TechBlog\TechBlog\bin\Ninject.Extensions.Conventions.dll
+D:\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\TechBlog\TechBlog\bin\Ninject.xml
+D:\TechBlog\TechBlog\bin\Ninject.Extensions.Conventions.xml
