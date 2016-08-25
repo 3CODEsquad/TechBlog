@@ -31,7 +31,7 @@ else
                     <div class="col-md-6 col-sm-6">
                         <article class="blog-teaser">
                             <header>
-                                <h2 class="title"><a href="/Posts/Details/@post.Id">@Truncate(post.Title, 35)</a></h2>
+                                <h2 class="title" data-toggle="tooltip" data-placement="top" title="@post.Title"><a href="/Posts/Details/@post.Id">@Truncate(post.Title, 35)</a></h2>
                                 <div class="about">
                                     Posted on <i>@post.Date</i>
                                     @if (post.Author != null)

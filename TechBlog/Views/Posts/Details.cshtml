@@ -7,42 +7,62 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Post</h4>
-    <hr />
+    @*<h4>Post</h4>
+    <hr>
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Body)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Body)
+            </dt>
 
-        <dd>
-            @Html.Raw(Model.Body)
-        </dd>
+            <dd>
+                @Html.Raw(Model.Body)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Author)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Author)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Author.FullName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Author.FullName)
+            </dd>
 
-    </dl>
+        </dl>*@
+
+    <article class="">
+        <header>
+            <h2 class="title">@Html.DisplayFor(model => model.Title)</h2>
+            <div class="about">
+                Posted on <i>@Html.DisplayFor(model => model.Date)</i>
+                @if (@Html.DisplayFor(model => model.Author) != null)
+                {
+                    @:by <i>@Html.DisplayFor(model => model.Author.FullName) (@Html.DisplayFor(model => model.Author.UserName))</i>
+                }
+            </div>
+            <hr>
+        </header>
+        <div class="">@Html.Raw(Model.Body)</div>
+        <div class="clearfix">
+            <div class="likes">
+                LIKES:
+            </div>
+        </div>
+    </article>
 </div>
 
 <button data-id="@Model.Id" type="button" class="like-button" title="Click to like this post!">
