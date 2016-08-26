@@ -4,7 +4,6 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
 <div>
     @*<h4>Post</h4>
@@ -44,9 +43,9 @@
 
         </dl>*@
 
-    <article class="">
+    <article class="details-blog-teaser">
         <header>
-            <h2 class="title">@Html.DisplayFor(model => model.Title)</h2>
+            <h2 class="details-title">@Html.DisplayFor(model => model.Title)</h2>
             <div class="about">
                 Posted on <i>@Html.DisplayFor(model => model.Date)</i>
                 @if (@Html.DisplayFor(model => model.Author) != null)
@@ -56,7 +55,7 @@
             </div>
             <hr>
         </header>
-        <div class="">@Html.Raw(Model.Body)</div>
+        <div class="details-body">@Html.Raw(Model.Body)</div>
         <div class="clearfix">
             <div class="likes">
                 LIKES:
