@@ -74,7 +74,7 @@ body {
     padding: 10px !important;
     margin-top: 15px;
     text-align: center;
-    font-family: 'Lilita One', sans-serif;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     color: white;
     background-color: transparent;
     /*opacity: 0.9;*/
@@ -83,7 +83,7 @@ body {
 
 .techblog {
     font-size: 100px;
-    font-family: 'Lilita One', sans-serif;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     color: white;
     text-shadow: 7px 7px 0px #34495e;
     text-transform: uppercase;
@@ -326,6 +326,10 @@ fieldset[disabled] .btn-tales-one.active {
     background-image: none;
     border: 1px solid transparent;
     border-radius: 4px;
+}
+
+.btn-default {
+    background-color: #CCC;
 }
 
 .more-posts {

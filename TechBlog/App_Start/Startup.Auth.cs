@@ -34,7 +34,7 @@ namespace TechBlog
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
-            });            
+            });
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Enables the application to temporarily store user information when they are verifying the second factor in the two-factor authentication process.
@@ -54,15 +54,14 @@ namespace TechBlog
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1204849279546031",
+               appSecret: "8a6b8e5f69df033930772c6ed9f556c7");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(
+                  clientId: "5837100682-bhe03fojmceh7d0e4p9h73ks213ha0s1.apps.googleusercontent.com",
+                clientSecret: "YJxHFYgw23dH_mLxmBidYxlZ");
+            
         }
     }
 }

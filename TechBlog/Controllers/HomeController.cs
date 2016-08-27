@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity;
 
 namespace TechBlog.Controllers
 {
-
+    [RequireHttps]
     public class HomeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
