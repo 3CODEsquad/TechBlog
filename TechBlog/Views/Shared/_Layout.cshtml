@@ -29,7 +29,7 @@
                 @Html.ActionLink("TechBlog", "Index", "Home", new { area = "" }, new { @class = "brand navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav nav-main">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     @if (Request.IsAuthenticated)
                     {
@@ -41,6 +41,7 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
+                @*<input type="text" id="clock" disabled />*@
             </div>
         </div>
     </div>

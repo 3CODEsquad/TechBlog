@@ -6,43 +6,6 @@
 
 
 <div>
-    @*<h4>Post</h4>
-    <hr>
-    <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Title)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Title)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Body)
-            </dt>
-
-            <dd>
-                @Html.Raw(Model.Body)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Date)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Date)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Author)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Author.FullName)
-            </dd>
-
-        </dl>*@
-
     <article class="details-blog-teaser">
         <header>
             <h2 class="details-title">@Html.DisplayFor(model => model.Title)</h2>
@@ -57,38 +20,37 @@
         </header>
         <div class="details-body">@Html.Raw(Model.Body)</div>
         <div class="clearfix">
-            <div class="likes">
+            @*<div class="likes">
                 LIKES:
+            </div>*@
+            <button data-id="@Model.Id" type="button" class="like-button" title="Click to like this post!">
+                <i class="fa fa-thumbs-up"></i> Like
+                |
+                <span class="like-count">@Model.PostLikes</span>
+            </button>
+
+            <div>
+                @foreach (var comment in Model.Comments)
+                {
+                    if (comment != null)
+                    {
+                        @Html.Partial("Index", comment)
+                    }
+                    else
+                    {
+                        <div>
+                            No comments
+                        </div>
+                    }
+                }
             </div>
+
+            <p>
+                @Html.ActionLink("Comment", "Create", "Comments", new { id = Model.Id }, null)
+            </p>
         </div>
     </article>
 </div>
-
-<button data-id="@Model.Id" type="button" class="like-button" title="Click to like this post!">
-    <i class="fa fa-thumbs-up"></i> Like
-    |
-    <span class="like-count">@Model.PostLikes</span>
-</button>
-
-<div>
-    @foreach (var comment in Model.Comments)
-    {
-        if (comment != null)
-        {
-            @Html.Partial("Index", comment)
-        }
-        else
-        {
-            <div>
-                No comments
-            </div>
-        }
-    }
-</div>
-
-<p>
-    @Html.ActionLink("Comment", "Create", "Comments", new { id = Model.Id }, null)
-</p>
 
 <p>
     @if (User.IsInRole("Administrators"))
