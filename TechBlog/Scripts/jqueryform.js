@@ -1,8 +1,8 @@
 ﻿$(document).ready(function () {
 
     $("div#form1").append(			// Creating Form div and adding <h2> and <p> paragraph tag in it.
-		$("<h3/>").text("Contact Us"),
-		$("<p/>").text("This is my form. Please fill it out. It's awesome!"),
+		$("<h1/>").text("Contact Us"),
+        $("<hr/>").addClass("hr-form"),
 
         $("<form/>", { action: '#', method: '#' }).append(   // Create <form> tag and appending in html div form1.
 		$("<input/>", { type: 'text', id: 'vname', name: 'name', placeholder: 'Your Name' }),  // Creating input element with attribute
