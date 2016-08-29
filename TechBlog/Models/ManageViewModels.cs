@@ -28,7 +28,7 @@ namespace TechBlog.Models
     public class SetPasswordViewModel
     {
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 1)]
         [DataType(DataType.Password)]
         [Display(Name = "New password")]
         public string NewPassword { get; set; }
@@ -47,7 +47,7 @@ namespace TechBlog.Models
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 1)]
         [DataType(DataType.Password)]
         [Display(Name = "New password")]
         public string NewPassword { get; set; }
@@ -83,4 +83,21 @@ namespace TechBlog.Models
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
     }
+
+    public class ChangeUsernameViewModel
+    {
+        [Required]
+        [Display(Name = "Current Username")]
+        public string OldUsername { get; set; }
+
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 1)]
+        [Display(Name = "New Username")]
+        public string NewUsername { get; set; }
+
+        [Display(Name = "Confirm new Username")]
+        [Compare("NewUsername", ErrorMessage = "The new username and confirmation usrename do not match.")]
+        public string ConfirmUsername { get; set; }
+    }
+
 }
