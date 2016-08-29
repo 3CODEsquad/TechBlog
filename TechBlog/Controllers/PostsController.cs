@@ -24,13 +24,16 @@ namespace TechBlog.Controllers
         }
 
         // GET: Posts/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id, int? commentId)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Post post = db.Posts.Include(b => b.Author).Single(b => b.Id == id);
+            var comments = db.Comments.Where(p => p.Post_Id == post.Id).ToList();
+            
+            post.Comments = comments;
 
             if (post == null)
             {

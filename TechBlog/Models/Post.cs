@@ -6,6 +6,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations.Schema;
 using TechBlog.Models;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace TechBlog.Models
 {
@@ -14,7 +16,6 @@ namespace TechBlog.Models
         public Post()
         {
             this.Date = DateTime.Now;
-            this.Comments = new HashSet<Comment>();
         }
 
         [Key]

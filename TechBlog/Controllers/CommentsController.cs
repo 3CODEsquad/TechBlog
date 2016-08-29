@@ -20,7 +20,7 @@ namespace TechBlog.Controllers
         // GET: Comments
         public ActionResult Index()
         {
-            return View(db.Comments.ToList());
+            return View(db.Comments.Include(p => p.Author).OrderByDescending(b => b.Date).ToList());
         }
 
         // GET: Comments/Details/5
@@ -30,7 +30,8 @@ namespace TechBlog.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
+            Comment comment = db.Comments.Include(b => b.Author).Single(b => b.Id == id);
+
             if (comment == null)
             {
                 return HttpNotFound();

@@ -19,7 +19,7 @@
             <hr>
         </header>
         <div class="details-body">@Html.Raw(Model.Body)</div>
-        <div class="clearfix">
+        <div class="clearfix text-center">
             @*<div class="likes">
                 LIKES:
             </div>*@
@@ -29,12 +29,22 @@
                 <span class="like-count">@Model.PostLikes</span>
             </button>
 
-            <div>
+            <div class="details-body">
                 @foreach (var comment in Model.Comments)
                 {
                     if (comment != null)
                     {
-                        @Html.Partial("Index", comment)
+                        <div class="details-blog-teaser text-center">
+                            <div class="about text-center">
+                                Posted on <i>@Html.DisplayFor(c => comment.Date)</i>
+                                @if (@Html.DisplayFor(c => comment.Author) != null)
+                                {
+                                    @:by <i>@Html.DisplayFor(c => comment.Author.FullName) (@Html.DisplayFor(c => comment.Author.UserName))</i>
+                                }
+                            </div>
+                            <hr>
+                            @Html.Raw(comment.Body)
+                        </div>
                     }
                     else
                     {
@@ -45,9 +55,9 @@
                 }
             </div>
 
-            <p>
-                @Html.ActionLink("Comment", "Create", "Comments", new { id = Model.Id }, null)
-            </p>
+            <button>
+                @Html.ActionLink("Create a Comment", "Create", "Comments", new { id = Model.Id }, null)
+            </button>
         </div>
     </article>
 </div>
@@ -57,5 +67,7 @@
     {
         @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) @:|
     }
-    @Html.ActionLink("Back to List", "Index")
+    <button>
+        @Html.ActionLink("Back to Posts", "Index")
+    </button>
 </p>

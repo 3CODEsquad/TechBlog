@@ -1,4 +1,4 @@
-﻿@model IEnumerable<TechBlog.Models.Comment>
+﻿@model  IEnumerable<TechBlog.Models.Comment>
 
 @{
     ViewBag.Title = "Index";
@@ -28,13 +28,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Body)
+            @Html.Raw(item.Body)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Date)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Author)
+            @Html.DisplayFor(i => item.Author.FullName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
