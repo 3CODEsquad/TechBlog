@@ -44,12 +44,13 @@
                             </div>
                             <hr>
                             @Html.Raw(comment.Body)
-                        </div>
-                    }
-                    else
-                    {
-                        <div>
-                            No comments
+                            <hr>
+                            <button> 
+                                    @Html.ActionLink("Edit", "Edit", new { id = comment.Id })
+                            </button>
+                            <button>
+                                    @Html.ActionLink("Delete", "Delete", new { id = comment.Id })
+                            </button>
                         </div>
                     }
                 }

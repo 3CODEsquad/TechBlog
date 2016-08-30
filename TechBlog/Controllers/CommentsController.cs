@@ -63,13 +63,14 @@ namespace TechBlog.Controllers
 
                 var postId = db.Posts.Find(id).Id;
                 Comment.Post_Id = postId;
-
+                Post post = db.Posts.Find(id);
+                Comment.Post = post;
                 db.Comments.Add(Comment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Posts", new { id = post.Id });
             }
 
-            return View(Comment);
+            return View();
         }
 
         // GET: Comments/Edit/5
@@ -98,6 +99,9 @@ namespace TechBlog.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(comment).State = EntityState.Modified;
+                UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                ApplicationUser user = UserManager.FindById(this.User.Identity.GetUserId());
+                comment.Author = user;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

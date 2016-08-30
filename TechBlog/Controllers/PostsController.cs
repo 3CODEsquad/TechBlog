@@ -31,7 +31,8 @@ namespace TechBlog.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Post post = db.Posts.Include(b => b.Author).Single(b => b.Id == id);
-            var comments = db.Comments.Where(p => p.Post_Id == post.Id).ToList();
+            var comments = db.Comments.Where(p => p.Post_Id == post.Id).Include(b => b.Author).ToList();
+          
             
             post.Comments = comments;
 
