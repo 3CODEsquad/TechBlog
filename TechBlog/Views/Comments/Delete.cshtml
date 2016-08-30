@@ -11,20 +11,13 @@
     <h4>Comment</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PostLike)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PostLike)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Body)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Body)
+            @Html.Raw(Model.Body)
         </dd>
 
         <dt>

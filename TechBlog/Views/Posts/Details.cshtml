@@ -46,10 +46,10 @@
                             @Html.Raw(comment.Body)
                             <hr>
                             <div class="btn btn-default"> 
-                                    @Html.ActionLink("Edit", "Edit", new { id = comment.Id })
+                                    @Html.ActionLink("Edit", "Edit", "Comments", new { id = comment.Id }, null)
                             </div>
                             <div class="btn btn-default">
-                                    @Html.ActionLink("Delete", "Delete", new { id = comment.Id })
+                                    @Html.ActionLink("Delete", "Delete", "Comments", new { id = comment.Id }, null)
                             </div>
                         </div>
                     }
