@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TechBlog.Models;
+using TechBlog.Extensions;
 
 namespace TechBlog.Controllers
 {
@@ -32,9 +33,9 @@ namespace TechBlog.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -237,8 +238,9 @@ namespace TechBlog.Controllers
                 if (user != null)
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    this.AddNotification("Password changed successfully.", NotificationType.INFO);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                return RedirectToAction("Index");
             }
             AddErrors(result);
             return View(model);
@@ -325,6 +327,7 @@ namespace TechBlog.Controllers
         // GET: /Manage/ChangeUsername
         public ActionResult ChangeUsername()
         {
+            ViewBag.Username = User.Identity.Name;
             return View();
         }
 
@@ -338,12 +341,15 @@ namespace TechBlog.Controllers
             {
                 return View(model);
             }
-                var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-                if (user != null)
-                {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
+            var username = model.NewUsername;
+            if (user != null)
+            {
+                user.UserName = username;
+                await UserManager.UpdateAsync(user);                
+                this.AddNotification("Username changed successfully.", NotificationType.INFO);
+            }
+            return RedirectToAction("Index");
         }
         protected override void Dispose(bool disposing)
         {
@@ -356,7 +362,7 @@ namespace TechBlog.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -407,6 +413,6 @@ namespace TechBlog.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }

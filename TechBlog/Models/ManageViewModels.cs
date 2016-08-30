@@ -95,9 +95,6 @@ namespace TechBlog.Models
         [Display(Name = "New Username")]
         public string NewUsername { get; set; }
 
-        [Display(Name = "Confirm new Username")]
-        [Compare("NewUsername", ErrorMessage = "The new username and confirmation usrename do not match.")]
-        public string ConfirmUsername { get; set; }
     }
 
 }
