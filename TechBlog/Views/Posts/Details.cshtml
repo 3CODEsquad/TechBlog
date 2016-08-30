@@ -45,20 +45,20 @@
                             <hr>
                             @Html.Raw(comment.Body)
                             <hr>
-                            <button> 
+                            <div class="btn btn-default"> 
                                     @Html.ActionLink("Edit", "Edit", new { id = comment.Id })
-                            </button>
-                            <button>
+                            </div>
+                            <div class="btn btn-default">
                                     @Html.ActionLink("Delete", "Delete", new { id = comment.Id })
-                            </button>
+                            </div>
                         </div>
                     }
                 }
             </div>
 
-            <button>
+            <div class="btn btn-default">
                 @Html.ActionLink("Create a Comment", "Create", "Comments", new { id = Model.Id }, null)
-            </button>
+            </div>
         </div>
     </article>
 </div>
@@ -68,7 +68,7 @@
     {
         @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) @:|
     }
-    <button>
+    <div class="btn btn-default">
         @Html.ActionLink("Back to Posts", "Index")
-    </button>
+    </div>
 </p>
