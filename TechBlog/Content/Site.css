@@ -24,10 +24,6 @@
     background-color: transparent;
 }
 
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -54,7 +50,9 @@ body {
     line-height: 27px;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     color: #202020;
-    background-color: white;
+    background-color: #b8d1f8 !important;
+    padding-top: 50px;
+    padding-bottom: 20px;
 }
 
 .widewrapper-main {
@@ -118,6 +116,15 @@ body {
     width: 80px;
 }
 
+table {
+    background-color: #eeeeee;;
+    border: 1px solid rgb(165, 165, 165) !important;
+    box-shadow: 0px 1px 5px #9c9992;
+}
+
+tr {
+    border: 1px solid rgb(165, 165, 165) !important;
+}
 
 .side {
     float: right;
@@ -165,7 +172,7 @@ h2 {
 }
 
 .blog-teaser {
-    background-color: #e9e4da;
+    background-color: #eeeeee;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
@@ -176,7 +183,7 @@ h2 {
 }
 
 .details-blog-teaser {
-    background-color: #e9e4da;
+    background-color: #eeeeee;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
@@ -308,7 +315,7 @@ fieldset[disabled] .btn-tales-one.active {
 .btn {
     display: inline-block;
     padding: 6px 12px;
-    margin-bottom: 0;
+    margin-bottom: 10px;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.42857143;
@@ -323,13 +330,14 @@ fieldset[disabled] .btn-tales-one.active {
     -ms-user-select: none;
     user-select: none;
     background-image: none;
-    border: 1px solid transparent;
+    border: 1px solid #9c9992;
     border-radius: 4px;
 }
 
-.btn-default {
-    background-color: #CCC;
-}
+/*.btn {
+    background-color: #cbc8c2 !important;
+    box-shadow: 2px 2px 3px #424242 !important;
+}*/
 
 .more-posts {
     margin: 20px;    
@@ -347,7 +355,7 @@ fieldset[disabled] .btn-tales-one.active {
 }
 
 .background-index {
-    background: url("../Images/1474301.jpg");
+    background: url("../Images/background-229261.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -365,30 +373,46 @@ li {
 }
 
 .background-about {
-    background: url("../Images/robot01.jpg");
+    background: url("../Images/background-229261.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
 
+.background-contact {
+    background: url("../Images/computer-engineering-science-tech.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
 .about-info {
-    float: left;
-    background-color: #CCC;
-    opacity: 0.5;
-    padding: 15px;
-    margin-left: 20px;
+    position: center !important;
+    height: 420px;
+    color: black;
+     background-color: #e9e4da;
+     opacity: 0.8;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
     border-radius: 20px;
+    -webkit-box-shadow: 0px 1px 5px #9c9992;
+    -moz-box-shadow: 0px 1px 5px #9c9992;
+    box-shadow: 4px 4px 3px #424242;
+    margin: 40px;
+    padding: 20px;
+    text-align: center;
 }
 
-.about-header > hr {
-    margin-left: 0;
-    width: 520px;
-}
 
+hr {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
 
 footer {
     display: block;
-    background-color: #101010;
+    background-color: transparent !important;
     text-align: center;
     color: grey;
     padding: 2px;
