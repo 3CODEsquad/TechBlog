@@ -221,6 +221,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\ReplaysController.cs" />
+    <Compile Include="Controllers\TechBlogController.cs" />
     <Compile Include="Extensions\NotificationExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -239,14 +240,17 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\component.css" />
+    <Content Include="Content\demo.css" />
     <Content Include="Content\jqueryform.css" />
+    <Content Include="Content\normalize.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\1474301.jpg" />
-    <Content Include="Images\circuits.jpg" />
-    <Content Include="Images\robot01.jpg" />
+    <Content Include="Images\background-229261.jpg" />
+    <Content Include="Images\computer-engineering-science-tech.jpg" />
+    <Content Include="Images\demo-1-bg.jpg" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -255,6 +259,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\demo-1.js" />
+    <Content Include="Scripts\EasePack.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -266,10 +272,12 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jqueryform.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\rAF.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Clock.js" />
     <Content Include="Scripts\Site.js" />
+    <Content Include="Scripts\TweenLite.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -325,6 +333,8 @@
     <Content Include="Views\Replays\Details.cshtml" />
     <Content Include="Views\Replays\Edit.cshtml" />
     <Content Include="Views\Replays\Index.cshtml" />
+    <Content Include="Views\TechBlog\Index.cshtml" />
+    <Content Include="Views\Shared\_StartLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

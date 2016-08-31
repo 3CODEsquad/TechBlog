@@ -12,13 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Author.FullName)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Comment.Body)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Post.Title)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Body)
@@ -32,13 +26,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Author.FullName)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Comment.Body)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Post.Title)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Body)

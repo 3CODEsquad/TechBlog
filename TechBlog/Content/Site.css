@@ -50,7 +50,7 @@ body {
     line-height: 27px;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     color: #202020;
-    background-color: #b8d1f8 !important;
+    background-color: #b6dbfa !important;
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -114,6 +114,23 @@ body {
     position: center;
     color: black;
     width: 80px;
+}
+
+.all-posts {
+    margin-top: 10px;
+    background-color: #eeeeee;
+    border: 1px solid rgb(165, 165, 165) !important;
+    width: 140px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+}
+.create-new {
+    background-color: #eeeeee;
+    border: 1px solid rgb(165, 165, 165) !important;
+    width: 120px;
+    padding: 5px;
+    text-align: center;
 }
 
 table {
