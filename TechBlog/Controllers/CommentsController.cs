@@ -67,6 +67,7 @@ namespace TechBlog.Controllers
                 Comment.Post_Id = postId;
                 Post post = db.Posts.Find(id);
                 Comment.Post = post;
+                post.CommentsCount = post.CommentsCount + 1;
 
                 db.Comments.Add(Comment);
                 db.SaveChanges();

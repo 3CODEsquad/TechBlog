@@ -18,7 +18,7 @@ namespace TechBlog.Controllers
         public ActionResult Index()
         {
             var posts = db.Posts.Include(p => p.Author).OrderByDescending(p => p.Date).Take(4);
-            ViewBag.SidebarPosts = db.Posts.OrderByDescending(p => p.Date).Take(5);
+            ViewBag.SidebarPosts = db.Posts.OrderByDescending(p => p.CommentsCount).Take(5);
             return View(posts.ToList());        
         }
 

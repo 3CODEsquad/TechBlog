@@ -48,7 +48,8 @@ else
                             <div class="body post">@Truncate(post.Body, 400)</div>
                             <div class="clearfix">
                                 <a href="/Posts/Details/@post.Id" class="btn btn-tales-one">Read more</a>
-                            </div>
+                                Comments: @post.CommentsCount
+                            </div>                          
                         </article>
                     </div>
                 }               
@@ -58,7 +59,7 @@ else
         <aside class="col-md-3 side">
             <div class="aside-widget">
                 <header class="recommended">
-                    <h3>Recommended</h3>
+                    <h3>Top 5 Most Commented</h3>
                     <hr />
                 </header>
                 <div class="body">

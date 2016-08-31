@@ -44,6 +44,6 @@ namespace TechBlog.Models
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Replay> Replays { get; set; }
 
-
+        public int CommentsCount { get; set; }
     }
 }
