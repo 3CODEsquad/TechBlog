@@ -30,7 +30,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav nav-main">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    @if (Request.IsAuthenticated)
+                    @if (Request.IsAuthenticated @*&& Request.IsAuthenticated != User.IsInRole("Administrators")*@)
                     {
                         <li>@Html.ActionLink("My Posts", "MyPosts", "Posts")</li>
                     }

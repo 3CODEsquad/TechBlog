@@ -29,9 +29,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Body)
         </th>
-        @*<th>
-            Likes
-        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Date)
         </th>
@@ -40,7 +37,7 @@
 
     @foreach (var item in Model)
     {
-        if (item.Author != null && User.Identity.Name == item.Author.UserName)
+        if (User.IsInRole("Administrators") == (User.Identity.Name == item.Author.UserName) || item.Author != null && User.Identity.Name == item.Author.UserName)
         {
             <tr>
                 <td>
