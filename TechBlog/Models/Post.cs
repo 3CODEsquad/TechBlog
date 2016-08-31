@@ -39,6 +39,8 @@ namespace TechBlog.Models
         [ForeignKey("Author_Id")]
         public ApplicationUser Author { get; set; }
 
+        public Comment Comment { get; set; }
+
         public ICollection<Comment> Comments { get; set; }
         public ICollection<Replay> Replays { get; set; }
 

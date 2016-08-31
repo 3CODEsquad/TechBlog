@@ -31,6 +31,8 @@ namespace TechBlog.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Comment comment = db.Comments.Include(b => b.Author).Single(b => b.Id == id);
+            var replays = db.Replays.Where(p => p.Comment_Id == comment.Id).Include(b => b.Author).ToList();
+            comment.Replays = replays;
 
             if (comment == null)
             {
@@ -44,7 +46,7 @@ namespace TechBlog.Controllers
         public ActionResult Create(Comment Comment, int? id)
         {
             var post = db.Posts.Find(id).Id;
-            Comment.Post_Id = post; 
+            Comment.Post_Id = post;
             return View(Comment);
         }
 
@@ -111,7 +113,7 @@ namespace TechBlog.Controllers
 
                 var postId = db.Posts.Find(id).Id;
                 comment.Post_Id = postId;
-                Post post = db.Posts.Find(id);
+                Post post = db.Posts.Find(id);  
                 comment.Post = post;
 
                 db.SaveChanges();

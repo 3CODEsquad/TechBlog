@@ -31,10 +31,12 @@ namespace TechBlog.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Post post = db.Posts.Include(b => b.Author).Single(b => b.Id == id);
-            
+
             var comments = db.Comments.Where(p => p.Post_Id == post.Id).Include(b => b.Author).ToList();
+            var replays = db.Replays.Where(p => p.ReplayPost_Id == post.Id).Include(b => b.Author).ToList();
 
             post.Comments = comments;
+            post.Replays = replays;
 
             if (post == null)
             {
@@ -72,7 +74,7 @@ namespace TechBlog.Controllers
 
             return View(post);
         }
-        
+
 
         // GET: Posts/Edit/5
         [HttpGet]
@@ -92,7 +94,7 @@ namespace TechBlog.Controllers
             Post postAuthor = db.Posts.Include(b => b.Author).Single(b => b.Id == id);
 
             return View(post);
-            
+
         }
 
         // POST: Posts/Edit/5
@@ -109,7 +111,7 @@ namespace TechBlog.Controllers
 
                 UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
                 ApplicationUser user = UserManager.FindById(this.User.Identity.GetUserId());
-                post.Author = user;                
+                post.Author = user;
                 db.SaveChanges();
                 this.AddNotification("Post Edited.", NotificationType.INFO);
 

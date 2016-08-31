@@ -40,7 +40,9 @@ namespace TechBlog.Models
         [ForeignKey("Post_Id")]
         public Post Post { get; set; }
 
-        public ICollection<Replay> Replay { get; set; }
+        public Replay Replay { get; set; }
+
+        public ICollection<Replay> Replays { get; set; }
 
     }
 }

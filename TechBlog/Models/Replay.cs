@@ -29,15 +29,22 @@ namespace TechBlog.Models
         public DateTime Date { get; set; }
 
         public string Author_Id { get; set; }
-
         [ForeignKey("Author_Id")]
         public ApplicationUser Author { get; set; }
 
-        public Post Post { get; set; }
+
+
 
         public int Comment_Id { get; set; }
-
         [ForeignKey("Comment_Id")]
         public Comment Comment { get; set; }
+
+        public int? ReplayPost_Id { get; set; }
+
+        [ForeignKey("ReplayPost_Id")]
+        public Post Post { get; set; }
+
+        public ICollection<Comment> Comments { get; set; }
+        public ICollection<Post> Posts { get; set; }
     }
 }
