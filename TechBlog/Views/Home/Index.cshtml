@@ -48,7 +48,9 @@ else
                             <div class="body post">@Truncate(post.Body, 400)</div>
                             <div class="clearfix">
                                 <a href="/Posts/Details/@post.Id" class="btn btn-tales-one">Read more</a>
-                                Comments: @post.CommentsCount
+                                <div class="count">
+                                    Comments: [@post.CommentsCount]
+                                </div>
                             </div>                          
                         </article>
                     </div>
