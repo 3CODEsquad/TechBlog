@@ -159,7 +159,6 @@ E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\bin\Microsoft.
 E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\bin\Microsoft.Owin.Security.Google.xml
 E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\bin\Microsoft.Owin.Security.Twitter.xml
 E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\obj\Debug\TechBlog.csprojResolveAssemblyReference.cache
 E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\obj\Debug\TechBlog.dll
 E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\obj\Debug\TechBlog.pdb
 C:\Users\x\Desktop\Project\TechBlog\TechBlog\bin\ApplicationInsights.config
@@ -267,3 +266,4 @@ D:\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.Core.xml
 D:\TechBlog\TechBlog\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
 D:\TechBlog\TechBlog\bin\Ninject.xml
 D:\TechBlog\TechBlog\bin\Ninject.Extensions.Conventions.xml
+E:\SoftUni\4. Softwear Technologies\0. TechBlog\TechBlog\TechBlog\obj\Debug\TechBlog.csprojResolveAssemblyReference.cache

@@ -13,137 +13,124 @@ using TechBlog.Models;
 
 namespace TechBlog.Controllers
 {
-    public class CommentsController : Controller
+    public class ReplaysController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Comments
+        // GET: Replays
         public ActionResult Index()
         {
-            return View(db.Comments.Include(p => p.Author).OrderByDescending(b => b.Date).ToList());
+            var replays = db.Replays.Include(r => r.Author).Include(r => r.Comment).Include(r => r.Post);
+            return View(replays.ToList());
         }
 
-        // GET: Comments/Details/5
+        // GET: Replays/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Include(b => b.Author).Single(b => b.Id == id);
-
-            if (comment == null)
+            Replay replay = db.Replays.Find(id);
+            if (replay == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(replay);
         }
 
-        // GET: Comments/Create
-        [HttpGet]
-        public ActionResult Create(Comment Comment, int? id)
+        // GET: Replays/Create
+        public ActionResult Create(Replay Replay, int? id)
         {
-            var post = db.Posts.Find(id).Id;
-            Comment.Post_Id = post; 
-            return View(Comment);
+            var comment = db.Comments.Find(id).Id;
+            Replay.Comment_Id = comment;
+            return View(Replay);
         }
 
-        // POST: Comments/Create
+        // POST: Replays/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Body,Author_Id,Post_Id")] Comment Comment, int id)
+        public ActionResult Create([Bind(Include = "Id,Body,Date,Author_Id,Comment_Id")] Replay replay, int id)
         {
             if (ModelState.IsValid)
             {
                 UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
                 ApplicationUser user = UserManager.FindById(this.User.Identity.GetUserId());
-                Comment.Author = user;
+                replay.Author = user;
 
-                var postId = db.Posts.Find(id).Id;
-                Comment.Post_Id = postId;
-                Post post = db.Posts.Find(id);
-                Comment.Post = post;
+                var commentId = db.Comments.Find(id).Id;
+                replay.Comment_Id = commentId;
+                Comment comment = db.Comments.Find(id);
+                replay.Comment = comment;
 
-                db.Comments.Add(Comment);
+                db.Replays.Add(replay);
                 db.SaveChanges();
-                return RedirectToAction("Details", "Posts", new { id = post.Id });
+                return RedirectToAction("Details", "Comments", new { id = comment.Id });
             }
-
-            return View();
+            return View(replay);
         }
 
-        // GET: Comments/Edit/5
-        [HttpGet]
-        [Authorize]
+        // GET: Replays/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            Replay replay = db.Replays.Find(id);
+            if (replay == null)
             {
                 return HttpNotFound();
             }
-            Comment postAuthor = db.Comments.Include(b => b.Author).Single(b => b.Id == id);
-
-            return View(comment);
+           
+            ViewBag.Comment_Id = new SelectList(db.Comments, "Id", "Body", replay.Comment_Id);
+            
+            return View(replay);
         }
 
-        // POST: Comments/Edit/5
+        // POST: Replays/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
-        public ActionResult Edit([Bind(Include = "Id,Body,Date,Post_Id,Author_Id")] Comment comment, int id)
+        public ActionResult Edit([Bind(Include = "Id,Body,Date,Author_Id,Post_Id,Comment_Id")] Replay replay)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(comment).State = EntityState.Modified;
-
-                UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
-                ApplicationUser user = UserManager.FindById(this.User.Identity.GetUserId());
-                comment.Author = user;
-
-                var postId = db.Posts.Find(id).Id;
-                comment.Post_Id = postId;
-                Post post = db.Posts.Find(id);
-                comment.Post = post;
-
+                db.Entry(replay).State = EntityState.Modified;
                 db.SaveChanges();
-                this.AddNotification("Comment Edited.", NotificationType.INFO);
-
-                return RedirectToAction("Details", "Posts", new { id = post.Id });
+                return RedirectToAction("Index");
             }
-            return View(comment);
+            
+            ViewBag.Comment_Id = new SelectList(db.Comments, "Id", "Body", replay.Comment_Id);
+            
+            return View(replay);
         }
 
-        // GET: Comments/Delete/5
+        // GET: Replays/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
-            if (comment == null)
+            Replay replay = db.Replays.Find(id);
+            if (replay == null)
             {
                 return HttpNotFound();
             }
-            return View(comment);
+            return View(replay);
         }
 
-        // POST: Comments/Delete/5
+        // POST: Replays/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Comment comment = db.Comments.Find(id);
-            db.Comments.Remove(comment);
+            Replay replay = db.Replays.Find(id);
+            db.Replays.Remove(replay);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

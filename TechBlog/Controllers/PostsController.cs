@@ -24,16 +24,20 @@ namespace TechBlog.Controllers
         }
 
         // GET: Posts/Details/5
-        public ActionResult Details(int? id, int? commentId)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Post post = db.Posts.Include(b => b.Author).Single(b => b.Id == id);
-            var comments = db.Comments.Where(p => p.Post_Id == post.Id).Include(b => b.Author).ToList();
-          
+            var commentId = db.Comments.Find(id).Id;
             
+            var comments = db.Comments.Where(p => p.Post_Id == post.Id).Include(b => b.Author).ToList();
+            var replays = db.Replays.Where(r => r.Comment_Id == commentId).Include(b => b.Author).ToList();
+
+
+            post.Replays = replays;
             post.Comments = comments;
 
             if (post == null)
@@ -88,8 +92,6 @@ namespace TechBlog.Controllers
             {
                 return HttpNotFound();
             }
-            var authors = db.Users.ToList();
-            ViewBag.Authors = authors;
 
             Post postAuthor = db.Posts.Include(b => b.Author).Single(b => b.Id == id);
 

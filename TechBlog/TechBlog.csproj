@@ -220,28 +220,21 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
+    <Compile Include="Controllers\ReplaysController.cs" />
     <Compile Include="Extensions\NotificationExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Hubs\PostHubs.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ApplicationDbContex.cs" />
     <Compile Include="Models\Comment.cs" />
-    <Compile Include="Models\LikePost.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Post.cs" />
-    <Compile Include="Models\PostLike.cs" />
-    <Compile Include="Models\TechBlogContext.Context.cs" />
+    <Compile Include="Models\Replay.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\IRepository.cs" />
-    <Compile Include="Repository\PostLikeRepository.cs" />
-    <Compile Include="Repository\PostRepository.cs" />
-    <Compile Include="Repository\Repository.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\IndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -327,6 +320,11 @@
     <Content Include="Views\Comments\Index.cshtml" />
     <Content Include="Views\Posts\MyPosts.cshtml" />
     <Content Include="Views\Manage\ChangeUsername.cshtml" />
+    <Content Include="Views\Replays\Create.cshtml" />
+    <Content Include="Views\Replays\Delete.cshtml" />
+    <Content Include="Views\Replays\Details.cshtml" />
+    <Content Include="Views\Replays\Edit.cshtml" />
+    <Content Include="Views\Replays\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

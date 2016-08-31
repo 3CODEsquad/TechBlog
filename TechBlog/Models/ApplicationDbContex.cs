@@ -27,5 +27,9 @@ namespace TechBlog.Models
         public System.Data.Entity.DbSet<TechBlog.Models.Post> Posts { get; set; }
 
         public System.Data.Entity.DbSet<TechBlog.Models.Comment> Comments { get; set; }
+
+        public System.Data.Entity.DbSet<TechBlog.Models.Replay> Replays { get; set; }
+
+        //public System.Data.Entity.DbSet<TechBlog.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

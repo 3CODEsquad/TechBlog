@@ -5,25 +5,19 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using System.ComponentModel.DataAnnotations.Schema;
-using TechBlog.Models;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-
 namespace TechBlog.Models
 {
-    public class Post
+    public class Replay
     {
-        public Post()
+        public Replay()
         {
             this.Date = DateTime.Now;
         }
 
         [Key]
         public int Id { get; set; }
-
-        [Required]
-        [StringLength(200)]
-        public string Title { get; set; }
 
         [AllowHtml]
         [Required]
@@ -39,9 +33,11 @@ namespace TechBlog.Models
         [ForeignKey("Author_Id")]
         public ApplicationUser Author { get; set; }
 
-        public ICollection<Comment> Comments { get; set; }
-        public ICollection<Replay> Replays { get; set; }
+        public Post Post { get; set; }
 
+        public int Comment_Id { get; set; }
 
+        [ForeignKey("Comment_Id")]
+        public Comment Comment { get; set; }
     }
 }

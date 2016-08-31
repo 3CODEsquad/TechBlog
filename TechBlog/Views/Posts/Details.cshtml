@@ -20,14 +20,6 @@
         </header>
         <div class="details-body">@Html.Raw(Model.Body)</div>
         <div class="clearfix text-center">
-            @*<div class="likes">
-                LIKES:
-            </div>*@
-            <button data-id="@Model.Id" type="button" class="like-button" title="Click to like this post!">
-                <i class="fa fa-thumbs-up"></i> Like
-                |
-                <span class="like-count">@Model.PostLikes</span>
-            </button>
 
             <div class="details-body">
                 @foreach (var comment in Model.Comments)
@@ -45,12 +37,55 @@
                             <hr>
                             @Html.Raw(comment.Body)
                             <hr>
-                            <div class="btn btn-default"> 
-                                    @Html.ActionLink("Edit", "Edit", "Comments", new { id = comment.Id }, null)
+                            @if (User.IsInRole("Administrators") || (comment.Author != null && User.Identity.Name == comment.Author.UserName))
+                            {
+                                <div class="btn btn-default">
+                                        @Html.ActionLink("Edit", "Edit", "Comments", new { id = comment.Id }, null)
+                                </div>
+                            }
+                            @if (User.IsInRole("Administrators") || (comment.Author != null && User.Identity.Name == comment.Author.UserName))
+                            {
+                                <div class="btn btn-default">
+                                        @Html.ActionLink("Delete", "Delete", "Comments", new { id = comment.Id }, null)
+                                </div>
+                            }
+                        </div>
+                        if (Model.Replays != null)
+                        {
+                            foreach (var replay in Model.Replays)
+                            {
+                                if (replay != null)
+                                {
+                            <div class="details-blog-teaser text-center">
+                                <div class="about text-center">
+                                    Posted on <i>@Html.DisplayFor(c => replay.Date)</i>
+                                    @if (@Html.DisplayFor(c => replay.Author) != null)
+                                    {
+                                        @:by <i>@Html.DisplayFor(c => replay.Author.FullName) (@Html.DisplayFor(c => replay.Author.UserName))</i>
+                                }
+                                </div>
+                                <hr>
+                                @Html.Raw(replay.Body)
+                                <hr>
+                                @if (User.IsInRole("Administrators") || (replay.Author != null && User.Identity.Name == replay.Author.UserName))
+                                {
+                                    <div class="btn btn-default">
+                                        @Html.ActionLink("Edit", "Edit", "Replays", new { id = replay.Id }, null)
+                                    </div>
+                                }
+                                @if (User.IsInRole("Administrators") || (replay.Author != null && User.Identity.Name == replay.Author.UserName))
+                                {
+                                    <div class="btn btn-default">
+                                        @Html.ActionLink("Delete", "Delete", "Replays", new { id = replay.Id }, null)
+                                    </div>
+                                }
                             </div>
-                            <div class="btn btn-default">
-                                    @Html.ActionLink("Delete", "Delete", "Comments", new { id = comment.Id }, null)
-                            </div>
+                                }
+                            }
+                        }
+
+                        <div class="btn btn-default">
+                            @Html.ActionLink("Create a Replay", "Create", "Replays", new { id = comment.Id }, null)
                         </div>
                     }
                 }

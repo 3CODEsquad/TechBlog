@@ -1,8 +1,10 @@
-﻿@{
+﻿@model List<TechBlog.Models.Post>
+
+@{
     ViewBag.Title = "Home";
 }
 
-@model List<TechBlog.Models.Post>
+
 
 @helper Truncate(string input, int length)
 {
@@ -46,9 +48,6 @@ else
                             <div class="body post">@Truncate(post.Body, 400)</div>
                             <div class="clearfix">
                                 <a href="/Posts/Details/@post.Id" class="btn btn-tales-one">Read more</a>
-                                <div class="likes">
-                                    LIKES:
-                                </div>
                             </div>
                         </article>
                     </div>
