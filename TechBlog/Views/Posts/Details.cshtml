@@ -102,9 +102,10 @@
 </div>
 
 <p>
-    @if (User.IsInRole("Administrators"))
+    @if (User.IsInRole("Administrators") || (Model.Author != null && User.Identity.Name == Model.Author.UserName))
     {
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) @:|
+        @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
     }
     <div class="btn btn-default">
         @Html.ActionLink("Back to Posts", "Index")
