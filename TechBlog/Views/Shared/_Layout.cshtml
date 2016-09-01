@@ -29,18 +29,25 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav nav-main">
+                    @if (User.IsInRole("Administrators"))
+                    {
+                        <li>@Html.ActionLink("Admin Panel", "Index", "AdminPanel")</li>
+                    }
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    @if (Request.IsAuthenticated @*&& Request.IsAuthenticated != User.IsInRole("Administrators")*@)
+                    @if (Request.IsAuthenticated && Request.IsAuthenticated != User.IsInRole("Administrators"))
                     {
                         <li>@Html.ActionLink("My Posts", "MyPosts", "Posts")</li>
                     }
                     <li>@Html.ActionLink("Posts", "Index", "Posts")</li>
                     <li>@Html.ActionLink("New Post", "Create", "Posts")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+                    
+                    @if (!User.IsInRole("Administrators"))
+                    {
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
-                @*<input type="text" id="clock" disabled />*@
             </div>
         </div>
     </div>

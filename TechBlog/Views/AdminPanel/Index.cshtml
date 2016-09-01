@@ -1,0 +1,40 @@
+﻿@model TechBlog.Models.Post
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="admin-table">
+    <tr>
+        <th class="admin-title">
+            Admin Panel
+        </th>
+    </tr>
+    <tr class="users">
+        <td>
+            @Html.ActionLink("My posts", "MyPosts", "Posts")
+        </td>
+    </tr>
+    <tr>
+        <td>
+
+            Users [@ViewBag.TotalUsers]
+            @foreach (var user in ViewBag.UsersList)
+            {
+                <ul>- @user.FullName</ul>
+            }
+
+        </td>
+    </tr>
+    <tr>
+            <td>
+                Comments [@ViewBag.TotalComments]
+            </td>
+        </tr>
+    <tr>
+        <td>
+            Posts [@ViewBag.TotalPosts]
+        </td>
+    </tr>
+</table>
+

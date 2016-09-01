@@ -50,9 +50,9 @@
                                 </div>
                             }
 
-                            @* Replay code -------------------------------------- *@
+                            @*@* Replay code -------------------------------------- *@
 
-                            <div class="details-body">
+                            @*<div class="details-body">
                                 @foreach (var replay in Model.Replays)
                                 {
                                     if (replay != null)
@@ -83,12 +83,12 @@
                                         </div>
                                     }
                                 }
-                            </div>
+                            </div>*@
                             
                             @* Replay code----------------------END *@
-                            <div class="btn btn-default">
+                            @*<div class="btn btn-default">
                                 @Html.ActionLink("Create a Replay", "Create", "Replays", new { id = comment.Id }, null)
-                            </div>
+                            </div>*@
                         </div>                         
                     }
                 }
