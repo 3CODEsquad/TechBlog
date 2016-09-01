@@ -146,9 +146,10 @@ namespace TechBlog.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Comment comment = db.Comments.Find(id);
+            Post post = db.Posts.Find(id);
             db.Comments.Remove(comment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Posts", new { id = post.Id });
         }
 
         protected override void Dispose(bool disposing)

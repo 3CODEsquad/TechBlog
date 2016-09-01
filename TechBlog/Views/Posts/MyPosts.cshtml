@@ -37,7 +37,7 @@
 
     @foreach (var item in Model)
     {
-        if (User.IsInRole("Administrators") == (User.Identity.Name == item.Author.UserName) || item.Author != null && User.Identity.Name == item.Author.UserName)
+        if ((User.IsInRole("Administrators") && User.Identity.Name == item.Author.UserName) || item.Author != null && User.Identity.Name == item.Author.UserName)
         {
             <tr>
                 <td>
