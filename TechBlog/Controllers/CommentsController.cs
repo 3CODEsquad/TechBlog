@@ -148,8 +148,9 @@ namespace TechBlog.Controllers
             Comment comment = db.Comments.Find(id);
             Post post = db.Posts.Find(id);
             db.Comments.Remove(comment);
+            post.CommentsCount = post.CommentsCount - 1;
             db.SaveChanges();
-            return RedirectToAction("Details", "Posts", new { id = post.Id });
+            return RedirectToAction("Index", "Posts", null);
         }
 
         protected override void Dispose(bool disposing)

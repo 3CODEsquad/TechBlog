@@ -40,12 +40,6 @@
                             @if (User.IsInRole("Administrators") || (comment.Author != null && User.Identity.Name == comment.Author.UserName))
                             {
                                 <div class="btn btn-default">
-                                    @Html.ActionLink("Edit", "Edit", "Comments", new { id = comment.Id }, null)
-                                </div>
-                            }
-                            @if (User.IsInRole("Administrators") || (comment.Author != null && User.Identity.Name == comment.Author.UserName))
-                            {
-                                <div class="btn btn-default">
                                     @Html.ActionLink("Delete", "Delete", "Comments", new { id = comment.Id }, null)
                                 </div>
                             }
