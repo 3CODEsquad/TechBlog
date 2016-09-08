@@ -146,7 +146,7 @@ namespace TechBlog.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Comment comment = db.Comments.Find(id);
-            Post post = db.Posts.Find(id);
+            Post post = db.Posts.Find(comment.Post_Id);
             db.Comments.Remove(comment);
             post.CommentsCount = post.CommentsCount - 1;
             db.SaveChanges();
